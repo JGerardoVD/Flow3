@@ -1,0 +1,113 @@
+[
+    {
+        "id": "6cf1cdc59130ea92",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ef83e904b9081faf",
+        "type": "inject",
+        "z": "6cf1cdc59130ea92",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "c5c33753e8e1483b"
+            ]
+        ]
+    },
+    {
+        "id": "ccc3e174e0b1d4c4",
+        "type": "debug",
+        "z": "6cf1cdc59130ea92",
+        "name": "debug 1",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "c5c33753e8e1483b",
+        "type": "function",
+        "z": "6cf1cdc59130ea92",
+        "name": "function 1",
+        "func": "var date = new Date(msg.payload);\nmsg.payload = date.toString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 100,
+        "wires": [
+            [
+                "ccc3e174e0b1d4c4",
+                "b85acb618f5b33f0"
+            ]
+        ]
+    },
+    {
+        "id": "b85acb618f5b33f0",
+        "type": "ui_text",
+        "z": "6cf1cdc59130ea92",
+        "group": "5d33f788c3446ca9",
+        "order": 0,
+        "width": "6",
+        "height": "6",
+        "name": "",
+        "label": "La fecha y hora actual es:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 710,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5d33f788c3446ca9",
+        "type": "ui_group",
+        "name": "Fecha formato legible",
+        "tab": "c45731fb4312e344",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c45731fb4312e344",
+        "type": "ui_tab",
+        "name": "Flow 3 - Fecha",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
